@@ -1,0 +1,18 @@
+services:
+  api:
+    build: ./backend
+    environment:
+      CORS_ORIGINS: http://localhost:8080
+      PRICING_DEMO_DATA: "1"            # set to 0 and import your own data on the Data page
+      PRICING_DAILY_RUN_AT: ""          # e.g. "06:00" to calculate recommendations every morning
+      PRICING_API_KEY: ""               # set to require a key for calculating, approving and importing
+    volumes: ["store:/data"]
+    ports: ["8000:8000"]
+    restart: unless-stopped
+  web:
+    build: ./frontend
+    depends_on: [api]
+    ports: ["8080:80"]
+    restart: unless-stopped
+volumes:
+  store:
