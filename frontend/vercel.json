@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://pricing-engine-api.onrender.com/api/:path*" },
+    { "source": "/api/:path*", "destination": "https://dynamic-price-allocation.onrender.com/api/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
